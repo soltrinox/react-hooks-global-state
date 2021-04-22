@@ -6,3 +6,5 @@ node_modules
 examples/13_persistence/build/
 
 examples/13_persistence/yarn-error.log
+
+examples/13_persistence/.vscode/

@@ -8,9 +8,13 @@
     "react": "latest",
     "react-dom": "latest",
     "react-hooks-global-state": "^1.0.1",
-    "react-scripts": "latest",
+    "react-scripts": "^2.1.1",
     "redux": "latest",
+    "chokidar": "^3.4.0",
     "typescript": "latest"
+  },
+  "resolutions": {
+    "chokidar": "^3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
