@@ -6,7 +6,7 @@ const iref = React.createRef<any>();
 
 const masterObj = function (ivalue:any, pperson:any) {
   let iVal = JSON.stringify(pperson, null, 4);
-  console.log(iVal);
+  console.log('\n X]:\n'+iVal);
   return ivalue;
 };
 
@@ -26,14 +26,14 @@ const setAge = (event: React.FormEvent<HTMLInputElement>, pperson:any) => dispat
 });
 
 const setBigObject = (event: React.FormEvent<HTMLInputElement| HTMLTextAreaElement>, pperson:any) => dispatch({
-  bigObject:  masterObj(event.currentTarget.value, pperson),
+  bigObject: JSON.stringify(pperson, null, 4),  // masterObj(pperson.bigObject, pperson),
   type: 'setBigObject',
 });
 
 
 
 const Person = () => {
-  const [value] = useGlobalState('person');
+  const [value, setValue] = useGlobalState('person');
   
 
   const thisObject = function (ev: any, fun:any) {
@@ -53,26 +53,21 @@ const Person = () => {
       type iColdMedina = ReturnType<typeof fun>;
       const ColdMedina = class iColdMedina{};
 
-      let iVal = JSON.stringify(startvalue, null, 4);
-      console.log(iVal);
-
-      sexy = {
-        age: value.age,
-        firstName: value.firstName,
-        lastName: value.lastName
-      };
-      let toSexy = JSON.stringify(sexy, null, 4);
-      
+      let iVal = '';
 
       if (!_.isEqual(Funky, ColdMedina)) {
         console.log('DONT  MESS WITH THE MEDINA MAN !');
-       
+        
+        // iVal = JSON.parse(sexy);
+        let tVal = JSON.stringify(sexy, null, 4);
+        console.log('OBJ]:'+tVal);
+        setBigObject(ev, sexy);
+        // iref.current.
       } else {
-        console.log('NOT SO FUNKY !');
-        value.bigObject = toSexy;
+        console.log('NOT SO FUNKY !');        
       }
-        setBigObject(ev, toSexy);
-        fun(ev, value);
+      fun(ev, value);
+      // setValue(iVal).bigObject = iVal;
      
     } else {
       console.log('Too Legit!');
@@ -95,16 +90,18 @@ const Person = () => {
         <input value={value.age} onChange={(eev)=>thisObject(eev,setAge)} />
       </div>
       <div>
-        BIGOBJ:
-         <textarea
+        BIGOBJ: <br />
+        <textarea
           ref={iref}
-          onChange={(er)=>{thisObject(er,setBigObject)}}
+          rows={8}
+          cols={60}
+          onChange={(er)=>{thisObject(er,null)}}
           key="bigObject"
           value={value.bigObject}
           name="bigObject"
           className="bigObject"
           placeholder={value.bigObject}
-          data-value={value.bigObject} />
+          data-value={value.bigObject} >{value.bigObject}</textarea>
       </div>
       </form>
     </div>
