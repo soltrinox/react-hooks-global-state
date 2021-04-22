@@ -5,12 +5,12 @@
   "dependencies": {
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "chokidar": "^3.4.0",
     "react": "latest",
     "react-dom": "latest",
     "react-hooks-global-state": "^1.0.1",
     "react-scripts": "^2.1.1",
     "redux": "latest",
-    "chokidar": "^3.4.0",
     "typescript": "latest"
   },
   "resolutions": {
@@ -27,5 +27,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "babel-jest": "23.6.0"
+  }
 }
