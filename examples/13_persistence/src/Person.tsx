@@ -17,9 +17,9 @@ const setAge = (event: React.FormEvent<HTMLInputElement>) => dispatch({
   type: 'setAge',
 });
 
-const setBigObj = (event: React.FormEvent<HTMLInputElement>) => dispatch({
+const setBigObject = (event: React.FormEvent<HTMLInputElement>) => dispatch({
   bigObject: event.currentTarget.value,
-  type: 'setBigObj',
+  type: 'setBigObject',
 });
 
 const Person = () => {
@@ -40,7 +40,7 @@ const Person = () => {
       </div>
       <div>
         BIGOBJ:
-         <textarea placeholder={value.bigObject} data-value={setBigObj}  ></textarea>
+         <textarea placeholder={value.bigObject} data-value={setBigObject}  ></textarea>
       </div>
     </div>
   );

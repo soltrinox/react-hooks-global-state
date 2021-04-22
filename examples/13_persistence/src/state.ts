@@ -1,6 +1,5 @@
 import { Dispatch } from 'react';
 import { applyMiddleware } from 'redux';
-
 import { createStore } from 'react-hooks-global-state';
 
 type State = {
@@ -18,7 +17,7 @@ type Action =
   | { type: 'decrement' }
   | { type: 'setFirstName'; firstName: string }
   | { type: 'setLastName'; lastName: string }
-  | { type: 'setBigObj'; bigObject: string }
+  | { type: 'setBigObject'; bigObject: string }
   | { type: 'setAge'; age: number };
 
 const defaultState: State = {
@@ -72,7 +71,7 @@ const reducer = (state = initialState, action: Action) => {
         lastName: action.lastName,
       },
     };
-    case 'setBigObj': return {
+    case 'setBigObject': return {
       ...state,
       person: {
         ...state.person,
