@@ -1,5 +1,5 @@
 import React, { ChangeEventHandler } from 'react';
-
+import _ from 'lodash';
 import { dispatch, useGlobalState } from './state';
 
 const iref = React.createRef<any>();
@@ -7,8 +7,6 @@ const iref = React.createRef<any>();
 const masterObj = function (ivalue:any, pperson:any) {
   let iVal = JSON.stringify(pperson, null, 4);
   console.log(iVal);
-  
-  iref.current.value = iVal;
   return ivalue;
 };
 
@@ -32,15 +30,53 @@ const setBigObject = (event: React.FormEvent<HTMLInputElement| HTMLTextAreaEleme
   type: 'setBigObject',
 });
 
+
+
 const Person = () => {
   const [value] = useGlobalState('person');
-
+  
 
   const thisObject = function (ev: any, fun:any) {
-    // const pperson = useGlobalState('person');
-    const eve = ev as ChangeEventHandler;
-    fun(ev,value);
     
+    const startvalue = value;
+    let sexy = {
+      age: startvalue.age,
+      firstName: startvalue.firstName,
+      lastName: startvalue.lastName
+    };
+  
+    const eve = ev as ChangeEventHandler;
+
+    if (_.isFunction(fun)) {
+      type iFunky = ReturnType<typeof setBigObject>;
+      const Funky = class iFunky { };
+      type iColdMedina = ReturnType<typeof fun>;
+      const ColdMedina = class iColdMedina{};
+
+      let iVal = JSON.stringify(startvalue, null, 4);
+      console.log(iVal);
+
+      sexy = {
+        age: value.age,
+        firstName: value.firstName,
+        lastName: value.lastName
+      };
+      let toSexy = JSON.stringify(sexy, null, 4);
+      
+
+      if (!_.isEqual(Funky, ColdMedina)) {
+        console.log('DONT  MESS WITH THE MEDINA MAN !');
+       
+      } else {
+        console.log('NOT SO FUNKY !');
+        value.bigObject = toSexy;
+      }
+        setBigObject(ev, toSexy);
+        fun(ev, value);
+     
+    } else {
+      console.log('Too Legit!');
+    }
   }
 
 

@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/lodash": "^4.14.168",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "chokidar": "^3.4.0",
+    "lodash": "^4.17.21",
     "react": "latest",
     "react-dom": "latest",
     "react-hooks-global-state": "^1.0.1",
