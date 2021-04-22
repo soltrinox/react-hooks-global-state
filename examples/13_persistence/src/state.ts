@@ -1,6 +1,5 @@
 import { Dispatch } from 'react';
 import { applyMiddleware } from 'redux';
-
 import { createStore } from 'react-hooks-global-state';
 
 type State = {
@@ -9,6 +8,7 @@ type State = {
     age: number;
     firstName: string;
     lastName: string;
+    bigObject: string;
   };
 };
 
@@ -17,6 +17,7 @@ type Action =
   | { type: 'decrement' }
   | { type: 'setFirstName'; firstName: string }
   | { type: 'setLastName'; lastName: string }
+  | { type: 'setBigObject'; bigObject: string }
   | { type: 'setAge'; age: number };
 
 const defaultState: State = {
@@ -25,6 +26,7 @@ const defaultState: State = {
     age: 0,
     firstName: '',
     lastName: '',
+    bigObject: ''
   },
 };
 
@@ -33,6 +35,7 @@ const parseState = (str: string | null): State | null => {
   try {
     const state = JSON.parse(str || '');
     if (typeof state.count !== 'number') throw new Error();
+    if (typeof state.person.bigObject !== 'string') throw new Error();
     if (typeof state.person.age !== 'number') throw new Error();
     if (typeof state.person.firstName !== 'string') throw new Error();
     if (typeof state.person.lastName !== 'string') throw new Error();
@@ -68,6 +71,13 @@ const reducer = (state = initialState, action: Action) => {
         lastName: action.lastName,
       },
     };
+    case 'setBigObject': return {
+      ...state,
+      person: {
+        ...state.person,
+        bigObject: action.bigObject,
+      },
+    };
     case 'setAge': return {
       ...state,
       person: {
@@ -92,3 +102,7 @@ export const { dispatch, useGlobalState } = createStore(
   initialState,
   applyMiddleware(saveStateToStorage),
 );
+
+// npm i--save - dev @types/react-hooks-global-state
+// declare module 'react-hooks-global-state
+
