@@ -2,3 +2,7 @@
 *.swp
 node_modules
 /dist
+
+examples/13_persistence/build/
+
+examples/13_persistence/yarn-error.log
