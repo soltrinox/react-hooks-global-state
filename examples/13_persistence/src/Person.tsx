@@ -17,6 +17,11 @@ const setAge = (event: React.FormEvent<HTMLInputElement>) => dispatch({
   type: 'setAge',
 });
 
+const setBigObj = (event: React.FormEvent<HTMLInputElement>) => dispatch({
+  bigObject: event.currentTarget.value,
+  type: 'setBigObj',
+});
+
 const Person = () => {
   const [value] = useGlobalState('person');
   return (
@@ -32,6 +37,10 @@ const Person = () => {
       <div>
         Age:
         <input value={value.age} onChange={setAge} />
+      </div>
+      <div>
+        BIGOBJ:
+         <textarea placeholder={value.bigObject} data-value={setBigObj}  ></textarea>
       </div>
     </div>
   );

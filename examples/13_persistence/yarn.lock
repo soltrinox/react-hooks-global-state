@@ -10223,10 +10223,10 @@ react-focus-lock@^2.2.1:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
-react-hooks-global-state@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-hooks-global-state/-/react-hooks-global-state-1.0.1.tgz#3e4e1009f3e8a6fd001cd507808b4f1b289e9b27"
-  integrity sha512-GFe/7KOdf8toByd8eF5LBhogMn65XSyghIzInsnA1e8vqIxGdT2Ohs2Ohdclp8CX0QU9xNj72ZIt+WD/SQEh9Q==
+react-hooks-global-state@2.0.0-alpha.3:
+  version "2.0.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/react-hooks-global-state/-/react-hooks-global-state-2.0.0-alpha.3.tgz#25585f1906e08d6e61f1bfb4aaaa2bc816cdc258"
+  integrity sha512-cysb5Uw5vdQSbCFm8bWNQYJv8IGy12byorxnkBSnfl0ruR4k2ZO182zjjq4rfMPXGsSaTWs0WtY0D+gxyFulXg==
 
 react-input-mask@^2.0.4:
   version "2.0.4"
